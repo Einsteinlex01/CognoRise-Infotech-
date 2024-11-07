@@ -17,7 +17,7 @@ This project aims to drive out all the data jobs, their experience level with th
 4. All jobs with the level of their remote ratio in each country.
 5. Job ranking with their respective salary
 
-### Analysis
+### ANALYSIS
 
 Remote positions in 2021-2022, particularly in leadership and technical roles, show significantly high salaries, with averages over $400,000. Positions like Director of Data Science often allow remote work, with salaries around $325,000. In contrast, roles such as Machine Learning Scientist and Research Scientist, which are primarily on-site (remote ratio <10%), are also high-paying, with annual salaries above $240,000. This trend highlights a premium on remote flexibility for specialized and leadership roles during this period
 
@@ -29,7 +29,8 @@ From 2020 to 2022, data role salaries showed stark disparities by role and exper
 
 From 2020 to 2022, data role salaries varied widely, reflecting cost-of-living adjustments in the USA and Canada. Lower salaries, such as Product Data Analysts earning $13,000 (2020) or 3D Computer Vision Researchers at $5,409 (2021), fall below sustainable income levels in high-cost areas. By contrast, high-paying roles, like Directors of Data Science ($325,000 in 2020) and Financial Data Analysts ($405,000 in 2021), align better with the high cost of living, especially in major cities. For Data Analyst Engineers in 2022, salaries spanned from $20,000 (entry) to $405,000 (senior), illustrating a significant gap in affordability and quality of life based on experience.
 
-### key insight (descriptive analysis)
+
+### KEY INSIGHT (descriptive analysis)
 This insight is going to be based on the year 2020,2021 and 2022
 
 1. Most of the remote jobs are high paid mostly in year (2021 and 2022) which pay scale is over $400000 on annual average salary
@@ -40,7 +41,7 @@ This insight is going to be based on the year 2020,2021 and 2022
 6. In 2022, a data analyst engineer earn as low as $20000 on an average as an entry level while $405000 on an average as a senior level.
 7.  Most higher paid remote jobs are on available in the united state (more emphasis on financial data analyst and director of data scientist)
 
-### Conclusion on Top 3 Highest-Paid Data Roles (USA and Canada, 2020-2022)
+### CONCLUSION on Top 3 Highest-Paid Data Roles (USA and Canada, 2020-2022)
 1. Financial Data Analyst (2021) - $405,000
 2. Data Analyst Engineer (Senior, 2022) - $405,000
 3. Director of Data Science (2020) - $325,000
