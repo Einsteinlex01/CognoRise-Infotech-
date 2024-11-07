@@ -8,6 +8,7 @@
 - [ANALYSIS](#ANALYSIS)
 - [KEY INSIGHT](#KEY-INSIGHT)
 - [CONCLUSION](#CONCLUSION)
+- [SQL](#SQL)
 
 This project aims to drive out all the data jobs, their experience level with their salary tailored with the cost of living in a particular country
 ### AIMS AND OBJECTIVES
@@ -29,6 +30,8 @@ From 2020 to 2022, data role salaries showed stark disparities by role and exper
 
 From 2020 to 2022, data role salaries varied widely, reflecting cost-of-living adjustments in the USA and Canada. Lower salaries, such as Product Data Analysts earning $13,000 (2020) or 3D Computer Vision Researchers at $5,409 (2021), fall below sustainable income levels in high-cost areas. By contrast, high-paying roles, like Directors of Data Science ($325,000 in 2020) and Financial Data Analysts ($405,000 in 2021), align better with the high cost of living, especially in major cities. For Data Analyst Engineers in 2022, salaries spanned from $20,000 (entry) to $405,000 (senior), illustrating a significant gap in affordability and quality of life based on experience.
 
+![cog_viz1](https://github.com/user-attachments/assets/c96f5212-faf9-46c6-b79b-9322633c83ae)
+
 
 ### KEY INSIGHT (descriptive analysis)
 This insight is going to be based on the year 2020,2021 and 2022
@@ -41,9 +44,94 @@ This insight is going to be based on the year 2020,2021 and 2022
 6. In 2022, a data analyst engineer earn as low as $20000 on an average as an entry level while $405000 on an average as a senior level.
 7.  Most higher paid remote jobs are on available in the united state (more emphasis on financial data analyst and director of data scientist)
 
+![cog_viz2](https://github.com/user-attachments/assets/9932a6eb-d59c-4e80-8406-c938bc471201)
+
+
 ### CONCLUSION on Top 3 Highest-Paid Data Roles (USA and Canada, 2020-2022)
 1. Financial Data Analyst (2021) - $405,000
 2. Data Analyst Engineer (Senior, 2022) - $405,000
 3. Director of Data Science (2020) - $325,000
 These top roles offered the most competitive salaries, aligning well with the high cost of living in major cities across the USA and Canada, especially in tech and finance.
 
+### SQL
+CODE USED FOR DATA CLEANING
+
+``` SQL
+drop database employee_salary;
+
+create database employee_salary;
+
+drop table ds_salaries;
+create table ds_salaries(
+		NUM int,
+        work_year INT,
+        experience_level varchar(3),
+        employment_type varchar(3),
+        job_title varchar(30),
+        salary decimal(12,3),
+        salary_currency varchar(5),
+        salary_in_usd decimal(12,3),
+        employee_residence varchar(5),
+        remote_ratio int,
+        company_location varchar(5),
+        company_size varchar(5)
+);
+
+select 
+	*
+from
+	ds_salaries;
+    
+select 
+	*,
+    row_number() over(partition by num, work_year, experience_level)
+from
+	ds_salaries;
+
+drop table if exists ds_salaries_2;
+CREATE TABLE `ds_salaries_2` (
+  `NUM` int DEFAULT NULL,
+  `work_year` int DEFAULT NULL,
+  `experience_level` varchar(3) DEFAULT NULL,
+  `employment_type` varchar(3) DEFAULT NULL,
+  `job_title` varchar(30) DEFAULT NULL,
+  `salary` decimal(12,3) DEFAULT NULL,
+  `salary_currency` varchar(5) DEFAULT NULL,
+  `salary_in_usd` decimal(12,3) DEFAULT NULL,
+  `employee_residence` varchar(5) DEFAULT NULL,
+  `remote_ratio` int DEFAULT NULL,
+  `company_location` varchar(5) DEFAULT NULL,
+  `company_size` varchar(5) DEFAULT NULL,
+  `row_num` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+insert into ds_salaries_2
+select 
+	*,
+    row_number() over(partition by num, work_year, experience_level) as row_num
+from
+	ds_salaries;
+    
+
+select 
+	*
+from
+	ds_salaries_2
+where row_num > 1;
+
+delete 
+from 
+ds_salaries_2
+where row_num > 1;
+
+alter table ds_salaries_2
+drop column row_num;
+
+select 
+	*
+from
+	ds_salaries_2;
+```
+### THIS CODE WAS USED FOR DATA CLEANING
+
+#### For more information view the tableau dashboard
